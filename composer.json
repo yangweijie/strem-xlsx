@@ -1,0 +1,20 @@
+{
+    "name": "yangweijie/stream-xlsx",
+    "description": "Memory-efficient XLSX export builder powered by xlswriter C extension.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-xlswriter": "*"
+    },
+    "suggest": {
+        "illuminate/support": "Required for Laravel integration."
+    },
+    "autoload": {
+        "psr-4": {
+            "StreamXlsx\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
