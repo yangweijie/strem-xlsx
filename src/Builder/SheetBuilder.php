@@ -62,7 +62,7 @@ final class SheetBuilder
     public function __construct(string $name = 'Sheet1')
     {
         $this->name = $name;
-        $this->headerStyle = new StyleOptions(true);
+        $this->headerStyle = StyleOptions::defaultHeader();
         $this->rowStyle = new RowStyleOptions();
         $this->bodyStyle = new StyleOptions();
     }

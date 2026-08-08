@@ -60,4 +60,10 @@ final class StyleOptions
             $overrides['wrapText']        ?? $this->wrapText
         );
     }
+
+    // Dto/StyleOptions.php 中添加
+    public static function defaultHeader(): self
+    {
+        return new self(null, null, null, true, false, null, null, true, false);
+    }
 }

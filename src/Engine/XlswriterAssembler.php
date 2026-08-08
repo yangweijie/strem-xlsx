@@ -53,14 +53,12 @@ final class XlswriterAssembler
         }
  
         $sheetIndex = 0;
- 
+
         foreach ($definition->sheets as $sheetDef) {
             if ($sheetIndex > 0) {
-                $file = $excel->addSheet($sheetDef->name);
-            } else {
-                $file = $file->setTitle($sheetDef->name);
+                $file = $excel->addSheet($sheetDef->name);  // 后续 sheet 走 addSheet
             }
- 
+
             $this->writeSheet($file, $sheetDef, $config);
             $sheetIndex++;
         }
@@ -145,7 +143,7 @@ final class XlswriterAssembler
         int $startRow
     ): int {
         $headerDef   = $def->header;
-        $headerStyle = $def->headerStyle ?? new StyleOptions(true);
+        $headerStyle = $def->headerStyle ?? StyleOptions::defaultHeader();
         $format      = XlswriterFormatConverter::toFormat($headerStyle, $handle);
  
         $rowCount = $headerDef->rowCount;

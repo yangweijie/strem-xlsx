@@ -11,11 +11,10 @@ use Vtiful\Kernel\Format;
 final class XlswriterFormatConverter
 {
     /**
-     * @param StyleOptions $style
      * @param mixed $fileHandle
-     * @return int
+     * @return mixed
      */
-    public static function toFormat(StyleOptions $style, $fileHandle): int
+    public static function toFormat(StyleOptions $style, $fileHandle)
     {
         $format = new Format($fileHandle);
  
@@ -50,14 +49,13 @@ final class XlswriterFormatConverter
  
         return $format->toResource();
     }
- 
+
     /**
-     * @param RowStyleOptions $rowStyle
      * @param mixed $fileHandle
      * @param bool $isOdd
-     * @return int|null
+     * @return mixed|null
      */
-    public static function toAlternateFormat(RowStyleOptions $rowStyle, $fileHandle, bool $isOdd): ?int
+    public static function toAlternateFormat(RowStyleOptions $rowStyle, $fileHandle, bool $isOdd)
     {
         if ($rowStyle->alternateColor === null || $isOdd) {
             return null;
@@ -66,12 +64,12 @@ final class XlswriterFormatConverter
             ->background(ColorHelper::toInt($rowStyle->alternateColor))
             ->toResource();
     }
- 
+
     /**
      * @param mixed $fileHandle
-     * @return int
+     * @return mixed
      */
-    public static function toBorderFormat($fileHandle): int
+    public static function toBorderFormat($fileHandle)
     {
         return (new Format($fileHandle))
             ->border(Format::BORDER_THIN)
