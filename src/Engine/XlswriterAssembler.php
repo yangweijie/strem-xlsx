@@ -344,7 +344,7 @@ final class XlswriterAssembler
  
         if ($format === 'currency') {
             if (is_numeric($value)) {
-                return number_format((float) $value, 2);
+                return number_format((float) $value, 2, '.', '');
             }
             return $value;
         }
